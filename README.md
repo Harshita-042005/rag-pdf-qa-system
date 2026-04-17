@@ -16,6 +16,7 @@ Generates accurate answers using an LLM
 The system ensures that responses are generated strictly from the uploaded documents, improving reliability and transparency.
 
 🏗️ Architecture
+
 PDF Upload
    ↓
 Text Extraction (PyPDFLoader)
@@ -33,7 +34,10 @@ Relevant Chunk Retrieval
 LLM (FLAN-T5)
    ↓
 Answer / Summary (Streamlit UI)
+
+
 ✨ Features
+
 📄 Upload one or multiple PDF documents
 🔍 Semantic search using FAISS vector database
 🤖 Retrieval-Augmented Generation (RAG)
@@ -43,6 +47,7 @@ Answer / Summary (Streamlit UI)
 📊 View retrieved context for transparency
 ⚡ Interactive web UI using Streamlit
 ⚙️ Tech Stack
+
 Frontend: Streamlit
 Backend: Python
 Framework: LangChain
@@ -50,10 +55,13 @@ Embeddings: all-MiniLM-L6-v2 (Hugging Face)
 LLM: google/flan-t5-base
 Vector Database: FAISS
 PDF Loader: PyPDFLoader
+
 📂 Project Structure
 ├── app.py              # Main application
 ├── requirements.txt    # Dependencies
 └── README.md           # Documentation
+
+
 🛠️ Installation
 Clone the repository:
 git clone https://github.com/your-username/your-repo-name.git
@@ -64,8 +72,9 @@ pip install -r requirements.txt
 streamlit run app.py
 
 Open in browser:
-
 http://localhost:8501
+
+
 🧠 How It Works
 1. Document Processing
 PDFs are loaded using PyPDFLoader
@@ -80,6 +89,8 @@ Ensures factual accuracy from documents
 4. Summarization
 Generates exact 4-sentence summaries
 Removes repetition and keeps clarity
+
+
 ❓ Usage
 Upload one or more PDF documents
 Wait for processing
@@ -87,19 +98,24 @@ Enter your question
 Click "Generate Answer"
 Click "Generate Combined Summary" for summaries
 Expand "View Retrieved Context" to see source data
+
+
 ⚠️ Limitations
 Works best with text-based PDFs
 Limited by smaller LLM (FLAN-T5)
 Not optimized for very large documents
+
+
 🔮 Future Improvements
 Add OCR for scanned PDFs
 Use advanced LLMs (GPT / LLaMA)
 Add chat history & conversational memory
 Deploy on cloud platforms
+
 🤝 Acknowledgements
 Hugging Face
 LangChain
 Streamlit
-📜 License
 
+📜 License
 This project is for educational purposes and can be used or modified freely.
