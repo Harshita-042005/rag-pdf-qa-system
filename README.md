@@ -1,90 +1,105 @@
-📚 Multi-Document Question Answering System (RAG)
+📚 Multi-Document Question Answering System using RAG
 
-A Streamlit-based application that allows users to upload multiple PDF documents and perform question answering and summarization using Retrieval-Augmented Generation (RAG).
+An intelligent PDF-based Question Answering System built with Streamlit, LangChain, and Hugging Face.
+This application allows users to upload multiple PDF documents and generate context-aware answers and summaries using Retrieval-Augmented Generation (RAG).
 
-🚀 Features
-📄 Upload multiple PDF documents
-🔍 Semantic search using vector embeddings (FAISS)
-🤖 AI-powered question answering (FLAN-T5)
-🧠 Context-aware responses using retrieved chunks
-📝 Automatic document summarization
-⚡ Fast and interactive UI with Streamlit
-🏗️ Tech Stack
+🚀 Overview
+
+This project implements a Multi-Document QA System that:
+
+Accepts multiple PDF uploads
+Extracts and processes text
+Performs semantic search using embeddings
+Retrieves relevant document chunks
+Generates accurate answers using an LLM
+
+The system ensures that responses are generated strictly from the uploaded documents, improving reliability and transparency.
+
+🏗️ Architecture
+PDF Upload
+   ↓
+Text Extraction (PyPDFLoader)
+   ↓
+Chunking (RecursiveCharacterTextSplitter)
+   ↓
+Embeddings (all-MiniLM-L6-v2)
+   ↓
+FAISS Vector Database
+   ↓
+User Question
+   ↓
+Relevant Chunk Retrieval
+   ↓
+LLM (FLAN-T5)
+   ↓
+Answer / Summary (Streamlit UI)
+✨ Features
+📄 Upload one or multiple PDF documents
+🔍 Semantic search using FAISS vector database
+🤖 Retrieval-Augmented Generation (RAG)
+🧠 Context-based AI answers
+✂️ Smart question splitting using “and”
+📝 4-sentence structured document summaries
+📊 View retrieved context for transparency
+⚡ Interactive web UI using Streamlit
+⚙️ Tech Stack
 Frontend: Streamlit
-LLM: Hugging Face (google/flan-t5-base)
-Embeddings: Sentence Transformers (all-MiniLM-L6-v2)
-Vector Store: FAISS
+Backend: Python
 Framework: LangChain
+Embeddings: all-MiniLM-L6-v2 (Hugging Face)
+LLM: google/flan-t5-base
+Vector Database: FAISS
+PDF Loader: PyPDFLoader
 📂 Project Structure
-├── app.py              # Main Streamlit application
+├── app.py              # Main application
 ├── requirements.txt    # Dependencies
-└── README.md           # Project documentation
-⚙️ Installation
+└── README.md           # Documentation
+🛠️ Installation
 Clone the repository:
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
-Create a virtual environment (optional but recommended):
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
 Install dependencies:
 pip install -r requirements.txt
-▶️ Usage
-
-Run the Streamlit app:
-
+▶️ Running the App
 streamlit run app.py
 
-Then open the local URL shown in your terminal.
+Open in browser:
 
+http://localhost:8501
 🧠 How It Works
-Upload PDFs
-Documents are loaded using PyPDFLoader
-Chunking
-Text is split into smaller chunks using RecursiveCharacterTextSplitter
-Embedding
-Each chunk is converted into vector embeddings
-Storage
-Stored in FAISS vector database
-Retrieval + Generation (RAG)
+1. Document Processing
+PDFs are loaded using PyPDFLoader
+Text is split into smaller chunks
+Embeddings are created using Hugging Face model
+2. Retrieval
+FAISS stores vector embeddings
 Relevant chunks are retrieved based on the query
-LLM generates answers using only retrieved context
-❓ Features Explained
-🔹 Question Answering
-Supports multi-part questions (splits on "and")
-Generates concise 4-sentence answers
-Uses only retrieved document context
-🔹 Document Summarization
-Generates summaries per document
-Removes repetition
-Outputs structured summaries
-📸 Demo (Optional)
-
-Add screenshots or GIFs here
-
-🛠️ Dependencies
-
-From requirements.txt:
-
-streamlit
-langchain
-langchain-community
-langchain-huggingface
-faiss-cpu
-sentence-transformers
-pypdf
+3. Answer Generation
+LLM generates answers using ONLY retrieved context
+Ensures factual accuracy from documents
+4. Summarization
+Generates exact 4-sentence summaries
+Removes repetition and keeps clarity
+❓ Usage
+Upload one or more PDF documents
+Wait for processing
+Enter your question
+Click "Generate Answer"
+Click "Generate Combined Summary" for summaries
+Expand "View Retrieved Context" to see source data
 ⚠️ Limitations
-Works best with text-based PDFs (not scanned images)
-Limited context window due to small model
-Summaries are based on partial document chunks
+Works best with text-based PDFs
+Limited by smaller LLM (FLAN-T5)
+Not optimized for very large documents
 🔮 Future Improvements
-Add support for scanned PDFs (OCR)
-Use more powerful LLMs (e.g., GPT / LLaMA)
-Add chat history / conversational memory
-Deploy on cloud (Streamlit Cloud / AWS)
-🤝 Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
+Add OCR for scanned PDFs
+Use advanced LLMs (GPT / LLaMA)
+Add chat history & conversational memory
+Deploy on cloud platforms
+🤝 Acknowledgements
+Hugging Face
+LangChain
+Streamlit
 📜 License
 
-This project is open-source and available under the MIT License.
+This project is for educational purposes and can be used or modified freely.
