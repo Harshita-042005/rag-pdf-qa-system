@@ -1,121 +1,119 @@
-📚 Multi-Document Question Answering System using RAG
+# Multi-Document Question Answering System using RAG
 
-An intelligent PDF-based Question Answering System built with Streamlit, LangChain, and Hugging Face.
-This application allows users to upload multiple PDF documents and generate context-aware answers and summaries using Retrieval-Augmented Generation (RAG).
+## 📌 Project Overview
 
-🚀 Overview
+This project is a Multi-Document Question Answering System built using Python, LangChain, HuggingFace, FAISS, and Streamlit. It allows users to upload multiple PDF documents, extract their content, and ask questions based on the uploaded files.
 
-This project implements a Multi-Document QA System that:
+The system uses Retrieval-Augmented Generation (RAG) to provide accurate, context-based answers by retrieving relevant document chunks and passing them to a language model for response generation.
 
-Accepts multiple PDF uploads
-Extracts and processes text
-Performs semantic search using embeddings
-Retrieves relevant document chunks
-Generates accurate answers using an LLM
+---
 
-The system ensures that responses are generated strictly from the uploaded documents, improving reliability and transparency.
+## 🚀 Features
 
-🏗️ Architecture
+* Upload and process multiple PDF documents
+* Semantic search using FAISS vector database
+* Retrieval-Augmented Generation (RAG)
+* Accurate context-based answers
+* Automatic document summarization (4 sentences per document)
+* Combined question handling using "and" splitting
+* Transparent context display for answers
+* Interactive Streamlit web interface
 
-PDF Upload
-   ↓
-Text Extraction (PyPDFLoader)
-   ↓
-Chunking (RecursiveCharacterTextSplitter)
-   ↓
-Embeddings (all-MiniLM-L6-v2)
-   ↓
-FAISS Vector Database
-   ↓
-User Question
-   ↓
-Relevant Chunk Retrieval
-   ↓
-LLM (FLAN-T5)
-   ↓
-Answer / Summary (Streamlit UI)
+---
 
+## 🛠️ Tech Stack
 
-✨ Features
+* Python
+* Streamlit
+* LangChain
+* FAISS
+* HuggingFace Transformers
+* Sentence Transformers (all-MiniLM-L6-v2)
+* Flan-T5 Language Model
 
-📄 Upload one or multiple PDF documents
-🔍 Semantic search using FAISS vector database
-🤖 Retrieval-Augmented Generation (RAG)
-🧠 Context-based AI answers
-✂️ Smart question splitting using “and”
-📝 4-sentence structured document summaries
-📊 View retrieved context for transparency
-⚡ Interactive web UI using Streamlit
-⚙️ Tech Stack
+---
 
-Frontend: Streamlit
-Backend: Python
-Framework: LangChain
-Embeddings: all-MiniLM-L6-v2 (Hugging Face)
-LLM: google/flan-t5-base
-Vector Database: FAISS
-PDF Loader: PyPDFLoader
+## 📂 Project Structure
 
-📂 Project Structure
-├── app.py              # Main application
-├── requirements.txt    # Dependencies
-└── README.md           # Documentation
+```
+Multi-Document-QA-RAG/
+│── app.py
+│── requirements.txt
+│── README.md
+```
 
+---
 
-🛠️ Installation
-Clone the repository:
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-Install dependencies:
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/Multi-Document-QA-RAG.git
+cd Multi-Document-QA-RAG
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
-▶️ Running the App
+```
+
+### 3️⃣ Run the Application
+
+```bash
 streamlit run app.py
+```
 
-Open in browser:
-http://localhost:8501
+---
 
+## 💡 How It Works
 
-🧠 How It Works
-1. Document Processing
-PDFs are loaded using PyPDFLoader
-Text is split into smaller chunks
-Embeddings are created using Hugging Face model
-2. Retrieval
-FAISS stores vector embeddings
-Relevant chunks are retrieved based on the query
-3. Answer Generation
-LLM generates answers using ONLY retrieved context
-Ensures factual accuracy from documents
-4. Summarization
-Generates exact 4-sentence summaries
-Removes repetition and keeps clarity
+1. User uploads one or more PDF documents
+2. Text is extracted using PyPDFLoader
+3. Documents are split into smaller chunks
+4. Embeddings are generated using HuggingFace models
+5. FAISS stores the vector representations
+6. User enters a question
+7. Relevant chunks are retrieved
+8. Flan-T5 generates the final answer
+
+---
 
 
-❓ Usage
-Upload one or more PDF documents
-Wait for processing
-Enter your question
-Click "Generate Answer"
-Click "Generate Combined Summary" for summaries
-Expand "View Retrieved Context" to see source data
+## 🎯 Use Cases
 
+* Document-based Question Answering
+* Research Paper Analysis
+* Academic Assistants
+* Knowledge Retrieval Systems
 
-⚠️ Limitations
-Works best with text-based PDFs
-Limited by smaller LLM (FLAN-T5)
-Not optimized for very large documents
+---
 
+## 📢 Future Improvements
 
-🔮 Future Improvements
-Add OCR for scanned PDFs
-Use advanced LLMs (GPT / LLaMA)
-Add chat history & conversational memory
-Deploy on cloud platforms
+* Support more file formats (DOCX, TXT)
+* Add chatbot-style interaction
+* Improve UI/UX design
+* Deploy as a cloud application
 
-🤝 Acknowledgements
-Hugging Face
-LangChain
-Streamlit
+---
 
-📜 License
-This project is for educational purposes and can be used or modified freely.
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork this repository and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+## 🙌 Acknowledgements
+
+* LangChain
+* HuggingFace
+* FAISS
+* Streamlit
